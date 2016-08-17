@@ -55,5 +55,3 @@ dependencies {
     compile "com.mixpanel.android:mixpanel-android:4.+"
 
 }
-
-apply plugin: 'com.google.gms.google-services'

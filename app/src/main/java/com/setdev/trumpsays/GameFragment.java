@@ -66,7 +66,7 @@ public class GameFragment extends Fragment implements SensorEventListener {
     public int TIME_TO_NEXT_ELECTION_DAY = 800; // Increase for longer games
 
     // Decrease for faster electoral votes per trump head
-    public static final float AR_COUNT_TIME_FACTOR = 3.2f;
+    public static final float AR_COUNT_TIME_FACTOR = 3.3f;
 
     public static final int TRACKER_ARROW_SIZE = 80;
     public static final int BTC_SIZE = 200;
@@ -160,9 +160,7 @@ public class GameFragment extends Fragment implements SensorEventListener {
 
             if(votes > 200) {
                 ((TextView)rootView.findViewById(R.id.electoral_vote_counter)).setTextColor
-                        (getResources().getColor(R.color.setcoins_red));
-                ((TextView)rootView.findViewById(R.id.electoral_vote_counter)).setTextColor(getContext()
-                        .getColor(R.color.setcoins_red));
+                        (ContextCompat.getColor(getContext(), R.color.white));
             }
 
             if(votes == 270) {
@@ -256,19 +254,13 @@ public class GameFragment extends Fragment implements SensorEventListener {
         Log.d(TAG,"onCreateView");
 
         rootView = inflater.inflate(R.layout.game_fragment,container,false);
+
         inflateContainer = container;
         this.inflater = inflater;
         howToPlayContainer = rootView.findViewById(R.id.how_to_play_container);
-
-        startVideo();
+        mListener.timeEvent("App Opened to Play Game");
 
         configureGameWindow();
-
-        assignClickListeners();
-        applyCustomStyles();
-        configureSensors();
-
-        mListener.hideSplashScreen();
 
         return rootView;
     }
@@ -279,6 +271,7 @@ public class GameFragment extends Fragment implements SensorEventListener {
         Log.d(TAG,"onPause");
 
         stopSensing();
+        landingVideo.stopPlayback();
 
     }
 
@@ -289,6 +282,8 @@ public class GameFragment extends Fragment implements SensorEventListener {
         sensorManager.unregisterListener(this);
         handler.removeCallbacks(countElectoralVotes);
         handler.removeCallbacks(electionDayCountdown);
+        handler.removeCallbacks(autoGenerateArObjects);
+
         if(winMp != null) winMp.stop();
         if(richMp != null) richMp.stop();
         if(loseMp != null) loseMp.stop();
@@ -327,8 +322,17 @@ public class GameFragment extends Fragment implements SensorEventListener {
         super.onResume();
         Log.d(TAG,"onResume");
         rootView.findViewById(R.id.instructions_container).setVisibility(View.VISIBLE);
-        rootView.findViewById(R.id.win_container).setVisibility(View.GONE);
         rootView.findViewById(R.id.lose_container).setVisibility(View.GONE);
+        rootView.findViewById(R.id.win_container).setVisibility(View.GONE);
+        rootView.findViewById(R.id.game_hud_container).setVisibility(View.GONE);
+        rootView.findViewById(R.id.camera_frame).setVisibility(View.GONE);
+        rootView.findViewById(R.id.ar_content_overlay).setVisibility(View.GONE);
+
+        startVideo();
+
+        assignClickListeners();
+        applyCustomStyles();
+        configureSensors();
 
     }
 
@@ -337,7 +341,7 @@ public class GameFragment extends Fragment implements SensorEventListener {
         ((ImageView)rootView.findViewById(R.id.crosshairs)).setImageDrawable(new
                 IconicsDrawable(getContext())
                 .icon(FontAwesome.Icon.faw_crosshairs)
-                .color(getResources().getColor(R.color.white_transparent)));
+                .color(ContextCompat.getColor(getContext(), R.color.white)));
         laserAnimSet = generateLaserAnimation();
 
     }
@@ -348,6 +352,8 @@ public class GameFragment extends Fragment implements SensorEventListener {
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "onLongClick: ");
+                mListener.trackEvent("App Opened to Play Game");
+
                 rootView.findViewById(R.id.instructions_container).setVisibility(View.GONE);
                 initializeSound();
                 initializeAr();
@@ -373,7 +379,7 @@ public class GameFragment extends Fragment implements SensorEventListener {
             @Override
             public void onClick(View view) {
                 prepareGame();
-                mListener.onFragmentInteraction("GameFragment", "TrackPlayAgain", null);
+                mListener.trackEvent("Play Again Button Clicked");
             }
         };
 
@@ -384,6 +390,7 @@ public class GameFragment extends Fragment implements SensorEventListener {
             @Override
             public void onClick(View view) {
                 shareGeneral();
+                mListener.trackEvent("Share Link Clicked");
             }
         };
 
@@ -393,6 +400,7 @@ public class GameFragment extends Fragment implements SensorEventListener {
         View.OnClickListener harambeLink = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mListener.trackEvent("Harambe Shirt Link Clicked");
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://teespring.com/dems-out-for-harambe-2016#pid=2&cid=576&sid=front"));
                 startActivity(browserIntent);
             }
@@ -407,6 +415,7 @@ public class GameFragment extends Fragment implements SensorEventListener {
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if(motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
                     howToPlayContainer.setVisibility(View.VISIBLE);
+                    mListener.trackEvent("How to Play Clicked");
 
                     howToPlayContainer.animate().alpha(1f).setListener(new Animator.AnimatorListener() {
                         @Override
@@ -555,11 +564,11 @@ public class GameFragment extends Fragment implements SensorEventListener {
         ((ImageView)leftTracker.findViewById(R.id.ar_left_tracker_arrow_image)).setImageDrawable(new
                 IconicsDrawable(getContext())
                 .icon(FontAwesome.Icon.faw_angle_left)
-                .color(getResources().getColor(R.color.accent)));
+                .color(ContextCompat.getColor(getContext(), R.color.accent)));
         ((ImageView)rightTracker.findViewById(R.id.ar_right_tracker_arrow_image)).setImageDrawable(new
                 IconicsDrawable(getContext())
                 .icon(FontAwesome.Icon.faw_angle_right)
-                .color(getResources().getColor(R.color.accent)));
+                .color(ContextCompat.getColor(getContext(), R.color.accent)));
 
         FrameLayout.LayoutParams arrowParams = new FrameLayout.LayoutParams(ViewGroup
                 .LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -577,8 +586,10 @@ public class GameFragment extends Fragment implements SensorEventListener {
         arContentOverlay.setVisibility(View.VISIBLE);
 
         FrameLayout arViewPane = (FrameLayout) rootView.findViewById(R.id.camera_frame);
+        arViewPane.removeAllViews();
         ArDisplayView arDisplay = new ArDisplayView(getContext());
         arViewPane.addView(arDisplay);
+        arViewPane.setVisibility(View.VISIBLE);
 
     }
 
@@ -636,6 +647,7 @@ public class GameFragment extends Fragment implements SensorEventListener {
                 @Override
                 public void run() {
                     rootView.findViewById(R.id.win_container).setVisibility(View.VISIBLE);
+                    mListener.trackEvent("Game Won");
                     winMp.start();
                 }
             }, 500);
@@ -644,6 +656,7 @@ public class GameFragment extends Fragment implements SensorEventListener {
                 @Override
                 public void run() {
                     rootView.findViewById(R.id.lose_container).setVisibility(View.VISIBLE);
+                    mListener.trackEvent("Game Lost");
                     loseMp.start();
                 }
             }, 500);
@@ -816,10 +829,8 @@ public class GameFragment extends Fragment implements SensorEventListener {
         rootView.findViewById(R.id.game_hud_container).setVisibility(View.VISIBLE);
         rootView.findViewById(R.id.shoot_button).setVisibility(View.VISIBLE);
         rootView.findViewById(R.id.crosshairs).setVisibility(View.VISIBLE);
-        ((TextView)rootView.findViewById(R.id.electoral_vote_counter)).setTextColor(getContext()
-                .getColor(R.color.white));
-        ((TextView)rootView.findViewById(R.id.electoral_vote_counter)).setTextColor(getResources
-                ().getColor(R.color.white));
+        ((TextView)rootView.findViewById(R.id.electoral_vote_counter)).setTextColor
+                (ContextCompat.getColor(getContext(), R.color.white));
 
         landingVideo.stopPlayback();
         landingVideo.setVisibility(View.GONE);
@@ -884,6 +895,7 @@ public class GameFragment extends Fragment implements SensorEventListener {
                 landingVideo.start();
             }
         });
+        landingVideo.setVisibility(View.VISIBLE);
 
     }
 

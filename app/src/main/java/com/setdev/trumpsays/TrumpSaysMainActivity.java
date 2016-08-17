@@ -48,7 +48,6 @@ public class TrumpSaysMainActivity extends FragmentActivity implements
     private static final String TAG = "TrumpSaysMainActivity";
     //private View mainRootView;
 
-    public Tracker appTracker;
     public MixpanelAPI mixpanel;
 
     private Handler handler = new Handler();
@@ -69,15 +68,12 @@ public class TrumpSaysMainActivity extends FragmentActivity implements
         OneSignal.startInit(this).init();
         setContentView(R.layout.activity_trump_says_main);
         applyCustomStyles();
-        checkPermission();
-
-        AnalyticsApp app = (AnalyticsApp) getApplication();
-        appTracker = app.getDefaultTracker();
     }
 
     @Override
     protected void onDestroy() {
         Log.d(TAG,"onDestroy");
+        if(mixpanel != null) mixpanel.flush();
         super.onDestroy();
     }
 
@@ -91,6 +87,8 @@ public class TrumpSaysMainActivity extends FragmentActivity implements
     protected void onResume() {
         Log.d(TAG, "onResume");
         super.onResume();
+        checkPermission();
+
     }
 
     @Override
@@ -104,30 +102,6 @@ public class TrumpSaysMainActivity extends FragmentActivity implements
         switch(upcomingFragment) {
             case "GameFragment":
                 createAndAddFragment(previousFragment, upcomingFragment, GameFragment.class, true, data);
-                break;
-            case "TrackPlayAgain":
-                Log.d(TAG, "TrackPlayAgain");
-
-                appTracker.send(new HitBuilders.EventBuilder()
-                        .setCategory("Action")
-                        .setAction("Play Again")
-                        .build());
-                break;
-            case "TrackShare":
-                Log.d(TAG, "TrackShare");
-
-                appTracker.send(new HitBuilders.EventBuilder()
-                        .setCategory("Action")
-                        .setAction("Share")
-                        .build());
-                break;
-            case "TrackShirts":
-                Log.d(TAG, "TrackShirts");
-
-                appTracker.send(new HitBuilders.EventBuilder()
-                        .setCategory("Action")
-                        .setAction("Shirt Link")
-                        .build());
                 break;
 
         }
@@ -258,5 +232,10 @@ public class TrumpSaysMainActivity extends FragmentActivity implements
     @Override
     public void trackEvent(String eventName) {
         mixpanel.track(eventName);
+    }
+
+    @Override
+    public void timeEvent(String eventName) {
+        mixpanel.timeEvent(eventName);
     }
 }
