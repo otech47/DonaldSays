@@ -1,16 +1,10 @@
-package com.setdev.trumpsays;
+package com.setdev.donaldsays;
 
 import android.Manifest;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.content.pm.Signature;
-import android.net.Uri;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -18,34 +12,22 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Base64;
 import android.util.Log;
-import android.view.View;
 import android.widget.Toast;
 
-import com.google.android.gms.analytics.HitBuilders;
-import com.google.android.gms.analytics.Tracker;
 import com.mixpanel.android.mpmetrics.MixpanelAPI;
 import com.onesignal.OneSignal;
-import com.setdev.trumpsays.interfaces.OnTrumpGoFragmentInteractionListener;
-import com.setdev.trumpsays.utils.Constants;
-import com.setdev.trumpsays.utils.TypefaceUtil;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import com.setdev.donaldsays.interfaces.OnTrumpGoFragmentInteractionListener;
+import com.setdev.donaldsays.utils.Constants;
+import com.setdev.donaldsays.utils.TypefaceUtil;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public class TrumpSaysMainActivity extends FragmentActivity implements
+public class DonaldSaysMainActivity extends FragmentActivity implements
         OnTrumpGoFragmentInteractionListener {
 
-    private static final String TAG = "TrumpSaysMainActivity";
+    private static final String TAG = "DonaldSaysMainActivity";
     //private View mainRootView;
 
     public MixpanelAPI mixpanel;
@@ -66,7 +48,7 @@ public class TrumpSaysMainActivity extends FragmentActivity implements
         mixpanel = MixpanelAPI.getInstance(this, "9feb719bbed8b10b51fe93fd9915d97d");
 
         OneSignal.startInit(this).init();
-        setContentView(R.layout.activity_trump_says_main);
+        setContentView(R.layout.activity_donald_says_main);
         applyCustomStyles();
     }
 
@@ -164,11 +146,11 @@ public class TrumpSaysMainActivity extends FragmentActivity implements
                 // Show an explanation to the user *asynchronously* -- don't block
                 // this thread waiting for the user's response! After the user
                 // sees the explanation, try again to request the permission.
-                AlertDialog.Builder builder = new AlertDialog.Builder(TrumpSaysMainActivity.this);
+                AlertDialog.Builder builder = new AlertDialog.Builder(DonaldSaysMainActivity.this);
                 builder.setMessage("You must enable the camera to play");
                 builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        ActivityCompat.requestPermissions(TrumpSaysMainActivity.this,
+                        ActivityCompat.requestPermissions(DonaldSaysMainActivity.this,
                                 new String[]{android.Manifest.permission.CAMERA},
                                 Constants.MY_PERMISSIONS_REQUEST_ACCESS_CAMERA);
                     }

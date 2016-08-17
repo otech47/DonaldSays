@@ -1,28 +1,25 @@
 {
   "project_info": {
-    "project_number": "466972627890",
-    "project_id": "firebase-trumpsays"
+    "project_number": "979830782100",
+    "project_id": "firebase-donaldsays"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:466972627890:android:68d021f904c7cf69",
+        "mobilesdk_app_id": "1:979830782100:android:8d7cf7279a594bce",
         "android_client_info": {
-          "package_name": "com.setdev.trumpsays"
+          "package_name": "com.setdev.donaldsays"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCt91yz0wVbTByuTiQXPPSgFHXmMQqPwm4"
+          "current_key": "AIzaSyDJs4ll4eO1BELiuYUma-tQw4wiwGBFMZo"
         }
       ],
       "services": {
         "analytics_service": {
-          "status": 2,
-          "analytics_property": {
-            "tracking_id": "UA-55911982-3"
-          }
+          "status": 1
         },
         "appinvite_service": {
           "status": 1,

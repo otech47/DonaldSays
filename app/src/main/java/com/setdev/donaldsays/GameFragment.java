@@ -1,10 +1,8 @@
-package com.setdev.trumpsays;
+package com.setdev.donaldsays;
 
-import android.Manifest;
 import android.animation.Animator;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -14,7 +12,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Vibrator;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
@@ -33,11 +30,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.VideoView;
 
-import com.google.android.gms.analytics.Tracker;
 import com.mikepenz.fontawesome_typeface_library.FontAwesome;
 import com.mikepenz.iconics.IconicsDrawable;
-import com.setdev.trumpsays.interfaces.OnTrumpGoFragmentInteractionListener;
-import com.setdev.trumpsays.utils.Constants;
+import com.setdev.donaldsays.interfaces.OnTrumpGoFragmentInteractionListener;
 
 import java.util.ArrayList;
 import java.util.List;

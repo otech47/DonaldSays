@@ -1,4 +1,4 @@
-package com.setdev.trumpsays;
+package com.setdev.donaldsays;
 
 import android.content.Context;
 import android.hardware.Camera;

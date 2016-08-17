@@ -1,4 +1,4 @@
-package com.setdev.trumpsays;
+package com.setdev.donaldsays;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

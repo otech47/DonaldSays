@@ -1,7 +1,6 @@
-package com.setdev.trumpsays.interfaces;
+package com.setdev.donaldsays.interfaces;
 
 import android.os.Bundle;
-import android.os.Handler;
 
 /**
  * Created by oscarlafarga on 8/17/16.

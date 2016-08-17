@@ -1,4 +1,4 @@
-package com.setdev.trumpsays.utils;
+package com.setdev.donaldsays.utils;
 
 import android.content.Context;
 import android.graphics.Typeface;

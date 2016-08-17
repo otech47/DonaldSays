@@ -1,4 +1,4 @@
-package com.setdev.trumpsays;
+package com.setdev.donaldsays;
 
 import org.junit.Test;
 

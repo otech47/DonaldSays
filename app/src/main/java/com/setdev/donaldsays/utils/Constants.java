@@ -1,4 +1,4 @@
-package com.setdev.trumpsays.utils;
+package com.setdev.donaldsays.utils;
 
 /**
  * Created by oscarlafarga on 1/23/16.
