@@ -1,0 +1,30 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="tiny">2dp</dimen>
+    <dimen name="small">5dp</dimen>
+    <dimen name="medium">10dp</dimen>
+    <dimen name="large">15dp</dimen>
+    <dimen name="xlarge">20dp</dimen>
+    <dimen name="xxlarge">28dp</dimen>
+    <dimen name="xxxlarge">38dp</dimen>
+    <dimen name="huge">50dp</dimen>
+    <dimen name="enormous">70dp</dimen>
+
+    <dimen name="tracker_arrow_size">80px</dimen>
+    <dimen name="bitcoin_size">45dp</dimen>
+    <dimen name="crosshairs_size">110px</dimen>
+
+    <dimen name="text_tiny">9sp</dimen>
+    <dimen name="text_small">10sp</dimen>
+    <dimen name="text_medium">12sp</dimen>
+    <dimen name="text_moderate">14sp</dimen>
+    <dimen name="text_large">18sp</dimen>
+    <dimen name="text_xlarge">20sp</dimen>
+    <dimen name="text_xxlarge">30sp</dimen>
+    <dimen name="text_huge">40sp</dimen>
+    <dimen name="text_enormous">56sp</dimen>
+
+    <dimen name="zero">0dp</dimen>
+
+
+</resources>

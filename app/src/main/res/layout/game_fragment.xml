@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:background="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/instructions_container"
+        android:visibility="gone"
+        android:layout_height="match_parent">
+
+        <VideoView
+            android:layout_width="match_parent"
+            android:id="@+id/landing_video"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true"
+            android:layout_alignParentBottom="true"
+            android:layout_height="match_parent"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:background="@color/gray_transparent"
+            android:layout_height="match_parent"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Play"
+            android:id="@+id/play_button"
+            android:textSize="@dimen/text_large"
+            android:background="@drawable/pressable_primary_to_primary_light_rounded"
+            android:textColor="@color/white"
+            android:padding="@dimen/small"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="TrumpSays"
+            android:id="@+id/app_title"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_huge"
+            android:paddingTop="@dimen/enormous"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="How to play"
+            android:id="@+id/how_to_play"
+            android:layout_below="@id/play_button"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_large"
+            android:paddingTop="@dimen/enormous"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/enormous"
+        android:layout_marginBottom="@dimen/huge"
+        android:layout_marginLeft="@dimen/large"
+        android:layout_marginRight="@dimen/large"
+        android:id="@+id/how_to_play_container"
+        android:layout_centerVertical="true"
+        android:animateLayoutChanges="true"
+        android:visibility="gone"
+        android:alpha="0"
+        android:clickable="true"
+        android:background="@drawable/rounded_box_white"
+        android:paddingTop="@dimen/large"
+        android:paddingBottom="@dimen/large"
+        android:paddingStart="@dimen/xxxlarge"
+        android:paddingEnd="@dimen/xxxlarge"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:textColor="@color/dark_gray"
+            android:text="Move your phone up, down, and around to aim at any nearby danger!"
+            android:gravity="center"
+            android:textSize="@dimen/text_large"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="@dimen/large"
+            android:layout_marginBottom="@dimen/large"
+            android:id="@+id/move_instructions"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:src="@drawable/howtoplay"
+            android:id="@+id/how_to_play_image"
+            android:layout_below="@id/move_instructions"
+            android:layout_height="150dp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:text="Fire!"
+            android:textAllCaps="true"
+            android:layout_below="@id/how_to_play_image"
+            android:layout_margin="@dimen/large"
+            android:id="@+id/shoot_button_instructions"
+            android:background="@drawable/rounded_box_5dp_primary_color"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/white"
+            android:padding="@dimen/large"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:textColor="@color/dark_gray"
+            android:text="Tap to shoot, hold down for rapid fire"
+            android:gravity="center"
+            android:id="@+id/shoot_instructions"
+            android:layout_below="@id/shoot_button_instructions"
+            android:paddingBottom="@dimen/large"
+            android:paddingTop="@dimen/large"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="Okay"
+            android:id="@+id/dismiss_how_to_play"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/shoot_instructions"
+            android:paddingBottom="@dimen/xlarge"
+            android:textColor="@color/setcoins_blue"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:id="@+id/camera_frame"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:visibility="invisible"
+        android:id="@+id/ar_content_overlay"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/win_container"
+        android:visibility="gone"
+        android:background="@color/light_gray_transparent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:src="@drawable/world_peace"
+            android:scaleType="centerCrop"
+            android:layout_height="match_parent"/>
+        `
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_centerInParent="true"
+            android:paddingBottom="20dp"
+            android:layout_height="match_parent">
+
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/button_container_win"
+                android:layout_centerInParent="true"
+                android:paddingBottom="@dimen/large"
+                android:paddingTop="@dimen/large"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:text="Play Again"
+                    android:id="@+id/play_again_win"
+                    android:elevation="14dp"
+                    android:visibility="visible"
+                    android:layout_marginEnd="@dimen/medium"
+                    android:layout_marginTop="@dimen/medium"
+                    android:background="@drawable/pressable_primary_to_primary_light_rounded"
+                    android:textColor="@color/white"
+                    android:padding="@dimen/large"
+                    android:layout_height="wrap_content"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:text="Share"
+                    android:id="@+id/share_win"
+                    android:visibility="visible"
+                    android:elevation="14dp"
+                    android:layout_marginStart="@dimen/medium"
+                    android:layout_marginTop="@dimen/medium"
+                    android:background="@drawable/pressable_blue_to_light_rounded"
+                    android:textColor="@color/white"
+                    android:padding="@dimen/large"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:background="@color/gray_transparent"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:id="@+id/win_text"
+                android:padding="@dimen/large"
+                android:layout_above="@id/button_container_win"
+                android:textSize="@dimen/text_xlarge"
+                android:text="Congratulations, you've defeated white supremacy!"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:text="#JusticeForHarambe"
+                android:id="@+id/shirts_link_win"
+                android:visibility="visible"
+                android:elevation="14dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/button_container_win"
+                android:layout_marginTop="@dimen/xxxlarge"
+                android:background="@drawable/rounded_box_blue_light"
+                android:textColor="@color/white"
+                android:paddingTop="@dimen/large"
+                android:paddingBottom="@dimen/large"
+                android:paddingStart="@dimen/xxxlarge"
+                android:paddingEnd="@dimen/xxxlarge"
+                android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/lose_container"
+        android:visibility="gone"
+        android:background="@color/light_gray_transparent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:src="@drawable/end_of_world_2"
+            android:scaleType="centerCrop"
+            android:layout_height="match_parent"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/button_container_lose"
+                android:layout_centerInParent="true"
+                android:paddingBottom="@dimen/large"
+                android:paddingTop="@dimen/large"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:text="Play Again"
+                    android:id="@+id/play_again_lose"
+                    android:elevation="16dp"
+                    android:visibility="visible"
+                    android:layout_marginEnd="@dimen/medium"
+                    android:layout_marginTop="@dimen/medium"
+                    android:background="@drawable/pressable_primary_to_primary_light_rounded"
+                    android:textColor="@color/white"
+                    android:padding="@dimen/large"
+                    android:layout_height="wrap_content"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:text="Share"
+                    android:id="@+id/share_lose"
+                    android:elevation="8dp"
+                    android:visibility="visible"
+                    android:layout_marginStart="@dimen/medium"
+                    android:layout_marginTop="@dimen/medium"
+                    android:background="@drawable/pressable_blue_to_light_rounded"
+                    android:textColor="@color/white"
+                    android:padding="@dimen/large"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:background="@color/light_gray_transparent"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:id="@+id/lose_text"
+                android:layout_above="@id/button_container_lose"
+                android:padding="@dimen/large"
+                android:textSize="@dimen/text_xlarge"
+                android:text="You made America GREAT again!"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:text="#JusticeForHarambe"
+                android:id="@+id/shirts_link_lose"
+                android:visibility="visible"
+                android:elevation="14dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/button_container_lose"
+                android:layout_marginTop="@dimen/xxxlarge"
+                android:background="@drawable/rounded_box_blue_light"
+                android:textColor="@color/white"
+                android:paddingTop="@dimen/large"
+                android:paddingBottom="@dimen/large"
+                android:paddingStart="@dimen/xxxlarge"
+                android:paddingEnd="@dimen/xxxlarge"
+                android:layout_height="wrap_content"/>
+
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_centerInParent="true"
+        android:id="@+id/game_hud_container"
+        android:visibility="gone"
+        android:layout_height="match_parent">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:text="Fire!"
+            android:textAllCaps="true"
+            android:id="@+id/shoot_button"
+            android:background="@drawable/rounded_box_5dp_primary_color"
+            android:textColor="@color/white"
+            android:padding="@dimen/large"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:layout_width="@dimen/crosshairs_size"
+            android:layout_height="@dimen/crosshairs_size"
+            android:layout_centerInParent="true"
+            android:id="@+id/crosshairs"/>
+
+        <View
+            android:layout_width="5dp"
+            android:visibility="gone"
+            android:id="@+id/laser"
+            android:background="@drawable/red_laser"
+            android:layout_centerInParent="true"
+            android:layout_height="40dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="0 / 270"
+            android:layout_alignParentTop="true"
+            android:background="@color/light_gray_transparent"
+            android:layout_alignParentLeft="true"
+            android:id="@+id/electoral_vote_counter"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textSize="@dimen/text_xxlarge"
+            android:padding="@dimen/large"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="Electoral Votes"
+            android:layout_below="@id/electoral_vote_counter"
+            android:background="@color/light_gray_transparent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignRight="@id/electoral_vote_counter"
+            android:id="@+id/electoral_vote_text"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:paddingStart="@dimen/xlarge"
+            android:paddingEnd="@dimen/large"
+            android:paddingBottom="@dimen/large"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="Days to Election"
+            android:background="@color/light_gray_transparent"
+            android:layout_alignParentRight="true"
+            android:id="@+id/days_to_election_text"
+            android:layout_alignBottom="@id/electoral_vote_text"
+            android:paddingStart="@dimen/large"
+            android:paddingEnd="@dimen/large"
+            android:paddingBottom="@dimen/large"
+            android:textColor="@color/white"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="100"
+            android:background="@color/light_gray_transparent"
+            android:layout_above="@id/electoral_vote_text"
+            android:layout_alignEnd="@id/days_to_election_text"
+            android:layout_alignStart="@id/days_to_election_text"
+            android:gravity="center"
+            android:textSize="@dimen/text_xxlarge"
+            android:layout_alignParentTop="true"
+            android:id="@+id/days_to_election"
+            android:padding="@dimen/large"
+            android:textColor="@color/white"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible"
+        android:id="@+id/sensor_data_overlay"
+        android:paddingStart="@dimen/xxlarge"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_gravity="left"
+            android:gravity="left"
+            android:visibility="visible"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/gyro_data"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@color/transparent"
+                android:text="Gyro Data"
+                android:id="@+id/gyro_title"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@color/transparent"
+                android:id="@+id/gyro_text_x"
+                android:text="X"
+                android:layout_below="@id/gyro_title"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@color/transparent"
+                android:id="@+id/gyro_text_y"
+                android:text="Y"
+                android:layout_below="@id/gyro_text_x"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@color/transparent"
+                android:id="@+id/gyro_text_z"
+                android:text="Z"
+                android:layout_below="@id/gyro_text_y"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_gravity="left"
+            android:gravity="left"
+            android:id="@+id/magneto_data"
+            android:visibility="visible"
+            android:layout_above="@id/gyro_data"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@color/transparent"
+                android:text="Accel Data"
+                android:id="@+id/accel_title"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@color/transparent"
+                android:id="@+id/accel_text_x"
+                android:text="X"
+                android:layout_below="@id/accel_title"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@color/transparent"
+                android:id="@+id/accel_text_y"
+                android:text="Y"
+                android:layout_below="@id/accel_text_x"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@color/transparent"
+                android:id="@+id/accel_text_z"
+                android:text="Z"
+                android:layout_below="@id/accel_text_y"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary_light">#FFF79497</color>
+    <color name="primary">#FF5A5F</color>
+    <color name="primary_dark">#0D5A85</color>
+    <color name="accent">#F9B94D</color>
+    <color name="accent_dark">#F59817</color>
+    <color name="setcoins_red">#FF5A5F</color>
+    <color name="setcoins_blue">#137EBA</color>
+    <color name="setcoins_blue_light">#80c9ee</color>
+
+    <color name="fb_blue">#3D5A98</color>
+    <color name="tw_blue">#39A0CE</color>
+    <color name="messenger_blue">#0080FF</color>
+    <color name="sms_green">#35D144</color>
+    <color name="email_green">#21CE99</color>
+    <color name="email_green_light">#85d9bf</color>
+    <color name="g_blue">#0057C6</color>
+
+    <color name="pure_white">#FFFFFF</color>
+    <color name="white">#f7f7f7</color>
+    <color name="nearly_white">#f7f7f7</color>
+    <color name="gray">#bdc3c7</color>
+    <color name="light_gray">#dadfe1</color>
+    <color name="medium_gray">#98a4ad</color>
+    <color name="dark_gray">#313542</color>
+    <color name="black">#313542</color>
+
+
+    <color name="text_black">#212121</color>
+
+    <color name="black_transparent">#66313542</color>
+    <color name="light_gray_transparent">#77313542</color>
+    <color name="gray_transparent">#BB313542</color>
+    <color name="transparent">#00f7f7f7</color>
+    <color name="white_transparent">#88F8F8F8</color>
+
+</resources>

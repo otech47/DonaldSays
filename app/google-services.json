@@ -1,0 +1,38 @@
+{
+  "project_info": {
+    "project_number": "466972627890",
+    "project_id": "firebase-trumpsays"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:466972627890:android:68d021f904c7cf69",
+        "android_client_info": {
+          "package_name": "com.setdev.trumpsays"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCt91yz0wVbTByuTiQXPPSgFHXmMQqPwm4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-55911982-3"
+          }
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
