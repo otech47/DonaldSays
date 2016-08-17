@@ -39,7 +39,7 @@ public class ArDisplayView extends SurfaceView implements SurfaceHolder.Callback
             Camera.CameraInfo info = new Camera.CameraInfo();
             Camera.getCameraInfo(Camera.CameraInfo.CAMERA_FACING_BACK, info);
             Log.d(TAG, DeviceName.getDeviceName());
-            if(DeviceName.getDeviceName().equals("Google Nexus 5")) {
+            if(DeviceName.getDeviceName().equals("Nexus 5X")) {
                 camera.setDisplayOrientation(270);
             } else {
                 camera.setDisplayOrientation(90);
