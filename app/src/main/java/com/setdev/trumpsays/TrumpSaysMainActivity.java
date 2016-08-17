@@ -252,7 +252,6 @@ public class TrumpSaysMainActivity extends FragmentActivity implements
                 return;
             }
 
-
         }
     }
 
