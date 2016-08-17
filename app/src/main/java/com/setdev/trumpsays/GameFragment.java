@@ -116,6 +116,7 @@ public class GameFragment extends Fragment implements SensorEventListener {
     private MediaPlayer loseMp;
     private MediaPlayer founderMp;
     private MediaPlayer mexicansMp;
+    private MediaPlayer tittiesMp;
 
     private boolean arActive = false;
     private boolean gamePaused = false;
@@ -296,6 +297,7 @@ public class GameFragment extends Fragment implements SensorEventListener {
         if(oyayeMp != null) oyayeMp.stop();
         if(founderMp != null) founderMp.stop();
         if(mexicansMp != null) mexicansMp.stop();
+        if(tittiesMp != null) tittiesMp.stop();
 
 
         super.onStop();
@@ -610,6 +612,7 @@ public class GameFragment extends Fragment implements SensorEventListener {
         loseMp = MediaPlayer.create(getContext(), R.raw.lose);
         founderMp = MediaPlayer.create(getContext(), R.raw.founder);
         mexicansMp = MediaPlayer.create(getContext(), R.raw.mexicans);
+        tittiesMp = MediaPlayer.create(getContext(), R.raw.titties);
 
         laserMp.setVolume(0.07f, 0.07f);
 
@@ -783,7 +786,7 @@ public class GameFragment extends Fragment implements SensorEventListener {
     }
 
     private void playRandomQuote(int index) {
-        switch (index % 7) {
+        switch (index % 8) {
             case 0:
                 chinaMp.start(); break;
             case 1:
@@ -798,6 +801,8 @@ public class GameFragment extends Fragment implements SensorEventListener {
                 founderMp.start(); break;
             case 6:
                 mexicansMp.start(); break;
+            case 7:
+                tittiesMp.start(); break;
         }
     }
 

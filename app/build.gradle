@@ -52,6 +52,8 @@ dependencies {
 
     compile 'com.jaredrummler:android-device-names:1.1.0'
 
+    compile "com.mixpanel.android:mixpanel-android:4.+"
+
 }
 
 apply plugin: 'com.google.gms.google-services'

@@ -27,6 +27,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
+import com.mixpanel.android.mpmetrics.MixpanelAPI;
 import com.onesignal.OneSignal;
 import com.setdev.trumpsays.interfaces.OnTrumpGoFragmentInteractionListener;
 import com.setdev.trumpsays.utils.Constants;
@@ -48,6 +49,7 @@ public class TrumpSaysMainActivity extends FragmentActivity implements
     //private View mainRootView;
 
     public Tracker appTracker;
+    public MixpanelAPI mixpanel;
 
     private Handler handler = new Handler();
     final Runnable goToGame = new Runnable() {
@@ -62,6 +64,8 @@ public class TrumpSaysMainActivity extends FragmentActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d(TAG, "onCreate");
+        mixpanel = MixpanelAPI.getInstance(this, "9feb719bbed8b10b51fe93fd9915d97d");
+
         OneSignal.startInit(this).init();
         setContentView(R.layout.activity_trump_says_main);
         applyCustomStyles();
@@ -183,7 +187,7 @@ public class TrumpSaysMainActivity extends FragmentActivity implements
             // Should we show an explanation?
             if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CAMERA)) {
 
-                // Show an expanation to the user *asynchronously* -- don't block
+                // Show an explanation to the user *asynchronously* -- don't block
                 // this thread waiting for the user's response! After the user
                 // sees the explanation, try again to request the permission.
                 AlertDialog.Builder builder = new AlertDialog.Builder(TrumpSaysMainActivity.this);
@@ -252,4 +256,8 @@ public class TrumpSaysMainActivity extends FragmentActivity implements
         }
     }
 
+    @Override
+    public void trackEvent(String eventName) {
+        mixpanel.track(eventName);
+    }
 }
