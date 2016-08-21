@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:id="@+id/ar_object"
+                android:layout_marginTop="0px"
+                android:layout_marginLeft="0px"
+                android:layout_marginBottom="0px"
+                android:layout_marginRight="0px"
+                android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="@dimen/bitcoin_size"
+        android:src="@mipmap/trumpface"
+        android:id="@+id/ar_object_image"
+        android:layout_height="@dimen/bitcoin_size"/>
+
+</FrameLayout>

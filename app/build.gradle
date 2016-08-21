@@ -1,0 +1,49 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.1"
+
+    defaultConfig {
+        applicationId "com.setdev.donaldsays"
+        manifestPlaceholders = [manifestApplicationId          : "${applicationId}",
+                                onesignal_app_id               : "3b24a044-29ef-43f0-9e88-594382d19e4f",
+                                onesignal_google_project_number: "979830782100"]
+        minSdkVersion 19
+        targetSdkVersion 24
+        versionCode 5
+        versionName "1.0.3"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:24.1.1'
+    compile 'com.android.support:design:24.1.1'
+    compile 'com.android.support:support-v4:24.1.1'
+
+    compile 'com.mikepenz:iconics-core:1.7.5@aar'
+    compile 'com.mikepenz:google-material-typeface:1.2.0.1@aar'
+    compile 'com.mikepenz:fontawesome-typeface:4.5.0.1@aar'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+
+    compile 'com.onesignal:OneSignal:3.+@aar'
+    compile 'uk.co.chrisjenx:calligraphy:2.2.0'
+
+    compile 'com.google.android.gms:play-services-gcm:9.2.1'
+    compile 'com.google.android.gms:play-services-analytics:9.2.1'
+    compile 'com.google.android.gms:play-services-base:9.2.1'
+    compile 'com.google.android.gms:play-services-auth:9.2.1'
+    compile 'com.google.android.gms:play-services-location:9.2.1'
+
+    compile 'com.jaredrummler:android-device-names:1.1.0'
+
+    compile "com.mixpanel.android:mixpanel-android:4.+"
+}

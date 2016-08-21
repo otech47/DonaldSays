@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="wrap_content"
+             android:id="@+id/ar_left_tracker_arrow"
+             android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="@dimen/tracker_arrow_size"
+        android:id="@+id/ar_left_tracker_arrow_image"
+        android:layout_height="@dimen/tracker_arrow_size"
+        />
+
+</FrameLayout>
