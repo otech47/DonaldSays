@@ -1,0 +1,35 @@
+{
+  "project_info": {
+    "project_number": "979830782100",
+    "project_id": "firebase-donaldsays"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:979830782100:android:8d7cf7279a594bce",
+        "android_client_info": {
+          "package_name": "com.setdev.donaldsays"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJs4ll4eO1BELiuYUma-tQw4wiwGBFMZo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
