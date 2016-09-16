@@ -11,8 +11,8 @@ android {
                                 onesignal_google_project_number: "979830782100"]
         minSdkVersion 19
         targetSdkVersion 24
-        versionCode 5
-        versionName "1.0.3"
+        versionCode 6
+        versionName "1.0.4"
     }
     buildTypes {
         release {

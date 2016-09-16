@@ -1,4 +1,4 @@
-ipackage com.setdev.donaldsays;
+package com.setdev.donaldsays;
 
 import android.animation.Animator;
 import android.content.Context;
@@ -61,7 +61,7 @@ public class GameFragment extends Fragment implements SensorEventListener {
     public int TIME_TO_NEXT_ELECTION_DAY = 800; // Increase for longer games
 
     // Decrease for faster electoral votes per trump head
-    public static final float AR_COUNT_TIME_FACTOR = 3.3f;
+    public static final float AR_COUNT_TIME_FACTOR = 3.5f;
 
     public static final int TRACKER_ARROW_SIZE = 80;
     public static final int BTC_SIZE = 200;
